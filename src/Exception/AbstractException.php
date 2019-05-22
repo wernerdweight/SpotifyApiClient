@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace WernerDweight\SpotifyApiClientBundle\Exception;
+namespace WernerDweight\SpotifyApiClient\Exception;
 
 abstract class AbstractException extends \Exception implements \Throwable
 {

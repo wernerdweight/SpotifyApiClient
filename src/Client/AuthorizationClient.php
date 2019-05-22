@@ -14,6 +14,7 @@ class AuthorizationClient extends AbstractClient
     /**
      * @param string $clientId
      * @param string $clientSecret
+     *
      * @return Response
      */
     public function authorizeWithClientCredentials(string $clientId, string $clientSecret): Response

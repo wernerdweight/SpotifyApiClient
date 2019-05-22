@@ -5,7 +5,7 @@ namespace WernerDweight\SpotifyApiClient\Client;
 
 use WernerDweight\Curler\Request;
 use WernerDweight\Curler\Response;
-use WernerDweight\SpotifyApiClientBundle\Exception\SearchClientException;
+use WernerDweight\SpotifyApiClient\Exception\SearchClientException;
 
 class SearchClient extends AbstractClient
 {
@@ -45,6 +45,7 @@ class SearchClient extends AbstractClient
 
     /**
      * @param array $types
+     *
      * @return string
      */
     private function prepareSearchTypes(array $types): string
@@ -63,7 +64,9 @@ class SearchClient extends AbstractClient
 
     /**
      * @param int $limit
+     *
      * @return int
+     *
      * @throws SearchClientException
      */
     private function prepareLimit(int $limit): int
@@ -71,9 +74,9 @@ class SearchClient extends AbstractClient
         if ($limit < self::MINIMUM_LIMIT || $limit > self::MAXIMUM_LIMIT) {
             throw new SearchClientException(
                 SearchClientException::INVALID_LIMIT,
-                $limit,
-                self::MINIMUM_LIMIT,
-                self::MAXIMUM_LIMIT
+                (string)$limit,
+                (string)self::MINIMUM_LIMIT,
+                (string)self::MAXIMUM_LIMIT
             );
         }
         return $limit;
@@ -81,7 +84,9 @@ class SearchClient extends AbstractClient
 
     /**
      * @param int $offset
+     *
      * @return int
+     *
      * @throws SearchClientException
      */
     private function prepareOffset(int $offset): int
@@ -89,23 +94,25 @@ class SearchClient extends AbstractClient
         if ($offset < self::MINIMUM_OFFSET || $offset > self::MAXIMUM_OFFSET) {
             throw new SearchClientException(
                 SearchClientException::INVALID_OFFSET,
-                $offset,
-                self::MINIMUM_OFFSET,
-                self::MAXIMUM_OFFSET
+                (string)$offset,
+                (string)self::MINIMUM_OFFSET,
+                (string)self::MAXIMUM_OFFSET
             );
         }
         return $offset;
     }
 
     /**
-     * @param string $authorizationToken
-     * @param string $query
-     * @param array $types
+     * @param string      $authorizationToken
+     * @param string      $query
+     * @param array       $types
      * @param string|null $market
-     * @param int $limit
-     * @param int $offset
-     * @param bool $includeExternalAudio
+     * @param int         $limit
+     * @param int         $offset
+     * @param bool        $includeExternalAudio
+     *
      * @return Response
+     *
      * @throws SearchClientException
      */
     public function search(

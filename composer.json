@@ -1,0 +1,46 @@
+{
+    "name": "wernerdweight/spotify-api-client",
+    "type": "library",
+    "description": "Spotify API client for PHP",
+    "keywords": [
+        "spotify",
+        "api",
+        "client"
+    ],
+    "homepage": "https://github.com/wernerdweight/SpotifyApiClient",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Werner Dweight Solutions",
+            "email": "info@wds.blue"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "wernerdweight/ra": "^0.3",
+        "wernerdweight/curler": "^1.0"
+    },
+    "require-dev": {
+        "wernerdweight/cs": "^1.2.1"
+    },
+    "suggest": {},
+    "autoload": {
+        "psr-4": {
+            "WernerDweight\\SpotifyApiClient\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WernerDweight\\SpotifyApiClient\\Tests\\": "Tests"
+        }
+    },
+    "scripts": {
+        "fix": "ecs check ./src/ ./tests/ --config vendor/wernerdweight/cs/WernerDweight/CS/src/ecs.yaml --fix",
+        "phpstan": "phpstan analyse ./src/ ./tests/ --level max",
+        "phpmd": "phpmd ./src/ text vendor/wernerdweight/cs/WernerDweight/CS/phpmd.xml",
+        "ecs": "ecs check ./src/ ./tests/ --config vendor/wernerdweight/cs/WernerDweight/CS/src/ecs.yaml",
+        "ecs-fix": "ecs check ./src/ ./tests/ --config vendor/wernerdweight/cs/WernerDweight/CS/src/ecs.yaml --fix",
+        "phpunit": "phpunit",
+        "victor": "victor"
+    }
+}

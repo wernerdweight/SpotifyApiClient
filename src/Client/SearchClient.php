@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace WernerDweight\SpotifyApiClient\Client;
 
+use Safe\Exceptions\StringsException;
 use WernerDweight\Curler\Request;
 use WernerDweight\Curler\Response;
 use WernerDweight\SpotifyApiClient\Exception\SearchClientException;
@@ -109,11 +110,12 @@ class SearchClient extends AbstractClient
      * @param string|null $market
      * @param int         $limit
      * @param int         $offset
-     * @param bool        $includeExternalAudio
+     * @param bool|null   $includeExternalAudio
      *
      * @return Response
      *
      * @throws SearchClientException
+     * @throws StringsException
      */
     public function search(
         string $authorizationToken,
@@ -122,7 +124,7 @@ class SearchClient extends AbstractClient
         ?string $market = null,
         int $limit = self::DEFAULT_LIMIT,
         int $offset = self::DEFAULT_OFFSET,
-        bool $includeExternalAudio = false
+        ?bool $includeExternalAudio = null
     ): Response {
         $payload = [
             'q' => $query,
